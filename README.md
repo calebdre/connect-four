@@ -1,5 +1,14 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Todos:
+- [ ] accounts where players can set their name and color
+- [ ] display name and color in game
+- [ ] generate a link to start a game with someone
+- [ ] add multiplayer
+- [ ] add leaderboard for games won
+- [ ] add a way to play against the computer
+- [ ] add a way to play against a friend on the same computer
+
 ## Getting Started
 
 First, run the development server:

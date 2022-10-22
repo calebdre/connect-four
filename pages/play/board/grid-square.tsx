@@ -1,5 +1,5 @@
 import React from 'react';
-import {Player} from "./board";
+import {Player} from "../../../core/types";
 
 type GridSquareProps = {
     position: number

@@ -1,5 +1,6 @@
 import React, {useCallback} from 'react';
 import GridSquare from "./grid-square";
+import {FilledSquare, GridItem, Player} from "../../../core/types";
 
 /*
 create a `GridSquare` component that accepts an index and (optional) player renders it
@@ -17,7 +18,7 @@ create a `GridSquare` component that accepts an index and (optional) player rend
 ✅ onclicked gridSquare parent will:
     receive the index of the grid item
     calc the column (calculated by index % boardSize)
-    going backwards from gridItems length,
+    going backwards from grid`Items length,
         find the first item in the column that is not filled
             if not filled, add its index & current player to the filledSquares
     call togglePlayer
@@ -25,9 +26,7 @@ create a `GridSquare` component that accepts an index and (optional) player rend
 ✅ render:
     for each grid item, render a gridSquare component
         pass in the index, and associated player from filledSquares
- */
 
-/*
 For players:
     ✅ create `Player` type and initialize with `name` and `color`
     ✅ create const for players
@@ -46,23 +45,8 @@ const players: Player[] = [
     }
 ]
 
-export type Player = {
-    name: string
-    color: string
-}
-
-export type GridItem = {
-    position: number
-    onClick: (column: number) => void
-    capturedBy: Player | undefined
-}
-
 const GRID_SIZE = 4
 const TOTAL_SQUARES = GRID_SIZE * GRID_SIZE
-
-type FilledSquare = {
-    [index: number]: GridItem
-}
 
 const Board = () => {
     /*
@@ -89,7 +73,6 @@ const Board = () => {
         })
     }, [filledSquares])
 
-
     /*
     onclicked gridSquare parent will:
         ✅ receive the index of the grid item
@@ -99,7 +82,6 @@ const Board = () => {
                ✅ if not filled, add its index & current player to the filledSquares
         ✅ call togglePlayer
      */
-
 
     const onGridClick = useCallback((index: number) => {
         const column = index % GRID_SIZE
@@ -121,8 +103,6 @@ const Board = () => {
         togglePlayer()
     }, [addFilledSquare, currentPlayer, filledSquares])
 
-    console.log(filledSquares)
-
     /*
     ✅ `render:
         for each grid item, render a gridSquare component
@@ -130,7 +110,7 @@ const Board = () => {
      */
 
     const gridItems = [...Array(TOTAL_SQUARES)].map((_, i) => {
-        const data = {
+        const data: GridItem = {
             position: i,
             onClick: onGridClick,
             capturedBy: filledSquares[i]?.capturedBy
