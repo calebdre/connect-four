@@ -42,7 +42,7 @@ const players: Player[] = [
     },
     {
         name: 'player 2',
-        color: '#ffea18'
+        color: '#68baba'
     }
 ]
 
@@ -147,15 +147,15 @@ const Board = () => {
     return (
         <div
             style={{
-                display: 'grid',
+                display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
+                width: '100vw',
+                height: '100vh',
             }}
         >
             <div
                 style={{
-                    width: '40vw',
-                    height: '40vw',
                     display: 'grid',
                     gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)`,
                     gridTemplateRows: `repeat(${GRID_SIZE}, 1fr)`,

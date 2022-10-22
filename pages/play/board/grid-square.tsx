@@ -11,8 +11,8 @@ const GridSquare: React.FC<GridSquareProps> = ({capturedBy, onClick, position}) 
     return (
         <div
             style={{
-                width: '100px',
-                height: '100px',
+                width: '150px',
+                height: '150px',
                 border: '1px solid black',
                 display: 'flex',
                 justifyContent: 'center',
@@ -24,15 +24,26 @@ const GridSquare: React.FC<GridSquareProps> = ({capturedBy, onClick, position}) 
         >
             <div
                 style={{
-                    width: '50px',
-                    height: '50px',
+                    width: '75px',
+                    height: '75px',
                     backgroundColor: capturedBy?.color,
                     borderStyle: 'dashed',
                     borderColor: 'red',
-                    borderRadius: '50%'
+                    borderRadius: '50%',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    display: 'flex',
                 }}
             >
-                {capturedBy?.name}
+                <p
+                    style={{
+                        textAlign: 'center',
+                        alignSelf:'center',
+                        margin: 0,
+                    }}
+                >
+                    {capturedBy?.name}
+                </p>
             </div>
         </div>
     );
