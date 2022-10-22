@@ -19,7 +19,6 @@ const GridSquare: React.FC<GridSquareProps> = ({capturedBy, onClick, position}) 
                 alignItems: 'center',
             }}
             onClick={() => {
-                console.log("clicked", position)
                 onClick(position)
             }}
         >

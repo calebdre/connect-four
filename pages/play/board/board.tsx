@@ -14,7 +14,7 @@ create a `GridSquare` component that accepts an index and (optional) player rend
              key = grid index
              value = player
 
-onclicked gridSquare parent will:
+✅ onclicked gridSquare parent will:
     receive the index of the grid item
     calc the column (calculated by index % boardSize)
     going backwards from gridItems length,
@@ -22,7 +22,7 @@ onclicked gridSquare parent will:
             if not filled, add its index & current player to the filledSquares
     call togglePlayer
 
-render:
+✅ render:
     for each grid item, render a gridSquare component
         pass in the index, and associated player from filledSquares
  */
@@ -65,6 +65,18 @@ type FilledSquare = {
 }
 
 const Board = () => {
+    /*
+   in the gridSquare parent
+   ✅ create const for the grid size
+   ✅ create const for the total number of squares
+   ✅ create a filledSquares state that contains the grid items that should be filled in
+       filledSquares is an object of { [index]: [Player] }
+   ✅ create a function that accepts a grid item
+       adds it to filled squares where:
+            key = grid index
+            value = grid item
+    */
+
     const [filledSquares, setFilledSquares] = React.useState<FilledSquare>({})
     const [currentPlayer, setCurrentPlayer] = React.useState<Player>(players[0])
 
@@ -77,17 +89,6 @@ const Board = () => {
         })
     }, [filledSquares])
 
-    /*
-    in the gridSquare parent
-    ✅ create const for the grid size
-    ✅ create const for the total number of squares
-    ✅ create a filledSquares state that contains the grid items that should be filled in
-        filledSquares is an object of { [index]: [Player] }
-    ✅ create a function that accepts a grid item
-        adds it to filled squares where:
-             key = grid index
-             value = grid item
-     */
 
     /*
     onclicked gridSquare parent will:
@@ -105,7 +106,7 @@ const Board = () => {
         const indexes = [...Array(TOTAL_SQUARES)]
             .map((_, i) => i)
             .filter((_, i) => i % GRID_SIZE === column)
-            
+
 
         indexes.forEach((i) => {
             if (! filledSquares[i]) {
@@ -123,7 +124,7 @@ const Board = () => {
     console.log(filledSquares)
 
     /*
-    render:
+    ✅ `render:
         for each grid item, render a gridSquare component
             pass in the index, and associated player from filledSquares
      */
